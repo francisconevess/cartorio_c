@@ -110,49 +110,62 @@ int delete()
 
 int main() 
 {
+	setlocale(LC_ALL, "Portuguese"); //definindo linguagem
+	
 	int opcao=0; //definindo variáveis
 	int laco=1;
+	char senhadigitada[]="a";
+	int comparacao;
+
+	printf("\t Cartório\t\n\n");
+	printf("Login de administrador!\n\nDigite a sua senha: ");
+	scanf("%s", senhadigitada);
 	
-	for(laco=1; laco=1;)
+	comparacao = strcmp(senhadigitada, "admin");
+	
+	if(comparacao == 0)
 	{
-		system("cls");
-		
-		setlocale(LC_ALL, "Portuguese"); //definindo linguagem
-		
-		printf("\t Cartório\t\n\n"); //inicio do menu
-		printf("Por favor escolha a opção desejada no menu:\n\n");
-		printf("\t1 - Registrar Nomes\n");
-		printf("\t2 - Consultar Nomes\n");
-		printf("\t3 - Deletar Nomes\n"); 
-		printf("\t4 - Sair do sistema\n\n");
-		printf("Opção: ");//fim do menu
-		
-		scanf("%d", &opcao); //armazenando a escolha do usuário
-		
 		system("cls"); //responsavel por limpar a tela
-		
-		switch(opcao) //inicio da seleção
+		for(laco=1; laco=1;)
 		{
-			case 1:
-			registro(); //chamada de funções
-			break;
-			
-			case 2:
-			consulta();
-			break;
-			
-			case 3:
-			delete();
-			break;
-		
-			case 4:
-			printf("Obrigado por utilizar o sistema!");
-			return 0;
-			break;
-		
-			default:
-			printf("Essa opção não está disponivel!\n");
-			break;	
-		} //fim da seleção
+			system("cls");
+			setlocale(LC_ALL, "Portuguese"); //definindo linguagem
+				
+			printf("\t Cartório\t\n\n"); //inicio do menu
+			printf("Por favor escolha a opção desejada no menu:\n\n");
+			printf("\t1 - Registrar Nomes\n");
+			printf("\t2 - Consultar Nomes\n");
+			printf("\t3 - Deletar Nomes\n\n"); 
+			printf("\t4 - Sair do sistema\n\n");
+			printf("Opção: ");//fim do menu
+				
+			scanf("%d", &opcao); //armazenando a escolha do usuário
+				
+			switch(opcao) //inicio da seleção
+			{
+				case 1:
+				registro(); //chamada de funções
+				break;
+					
+				case 2:
+				consulta();
+				break;
+					
+				case 3:
+				delete();
+				break;
+				
+				case 4:
+				printf("Obrigado por utilizar o sistema!");
+				return 0;
+				break;
+				
+				default:
+				printf("Essa opção não está disponivel!\n");
+				break;	
+			} //fim da seleção
+		}
 	}
+	else 
+		printf("Senha incorreta!");
 }
